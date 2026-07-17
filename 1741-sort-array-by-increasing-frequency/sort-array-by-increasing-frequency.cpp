@@ -5,22 +5,12 @@ public:
         for(int num:nums){
             freq[num]++;
         }
-        vector<pair<int,int>>num(freq.begin(),freq.end());
-        sort(num.begin(),num.end(),[](pair<int,int>&p1,pair<int,int>&p2){
-            if(p1.second==p2.second){
-                return p1.first>p2.first;
-            }
-            return p1.second<p2.second;
+        sort(nums.begin(),nums.end(),[&freq](int a,int b){
+             if(freq[a]!=freq[b]){
+                return freq[a]<freq[b];
+             }
+             return a>b;
         });
-        vector<int>ans;
-        for(auto & it:num){
-            int freq=it.second;
-            while(freq--){
-                ans.push_back(it.first);
-            }
-        }
-     return ans; 
-   
-   
+        return nums;
     }
 };
