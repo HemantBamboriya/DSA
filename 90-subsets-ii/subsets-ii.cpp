@@ -2,14 +2,18 @@ class Solution {
 public:
 
 void solve(int idx,vector<int>&nums,vector<vector<int>>&result,vector<int>&temp){
-    if(idx==nums.size()){
+    
         result.push_back(temp);
-        return ;
+    
+   for(int i=idx;i<nums.size();i++){
+    if(i>idx && nums[i]==nums[i-1]){
+        continue;
     }
-    temp.push_back(nums[idx]);
-    solve(idx+1,nums,result,temp);
+    temp.push_back(nums[i]);
+    solve(i+1,nums,result,temp);
     temp.pop_back();
-    solve(idx+1,nums,result,temp);
+    
+   }
 }
 
     vector<vector<int>> subsetsWithDup(vector<int>& nums) {
@@ -17,9 +21,7 @@ void solve(int idx,vector<int>&nums,vector<vector<int>>&result,vector<int>&temp)
         vector<vector<int>>result;
         vector<int>temp;
         solve(0,nums,result,temp);
-        set<vector<int>>st(result.begin(),result.end());
-        vector<vector<int>>res(st.begin(),st.end());
-        return res;
+        return result;
         
     }
 };
