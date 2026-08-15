@@ -1,0 +1,23 @@
+class Solution {
+public:
+
+int solve(int i,int j,vector<vector<int>>&dp,vector<vector<int>>&obstacleGrid){
+    if(i<0 || j<0) return 0;
+    if( obstacleGrid[i][j]==1) return 0;
+    if(i==0 && j==0) return 1;
+    if(dp[i][j]!=-1) return dp[i][j];
+    int top=solve(i-1,j,dp,obstacleGrid);
+    int left=solve(i,j-1,dp,obstacleGrid);
+    return dp[i][j]=top+left;
+}
+
+    int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
+        int n=obstacleGrid.size();
+        int m=obstacleGrid[0].size();
+        if(n==1 && obstacleGrid[0][0]==1) return 0;
+        vector<vector<int>>dp(n,vector<int>(m,-1));
+        if(obstacleGrid[0][0]==1) return 0;
+        return solve(n-1,m-1,dp,obstacleGrid);
+        
+    }
+};
