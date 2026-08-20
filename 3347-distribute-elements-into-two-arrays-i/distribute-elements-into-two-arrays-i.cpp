@@ -12,14 +12,8 @@ public:
                 arr2.push_back(nums[i]);
             }
         }
-        int size=arr1.size()+arr2.size();
-       vector<int>newArray(size);
-       for(int i=0;i<arr1.size();i++){
-        newArray[i]=arr1[i];
-       }
-       for(int i=0;i<arr2.size();i++){
-        newArray[arr1.size()+i]=arr2[i];
-       }
-       return newArray;
+       arr1.insert(arr1.end(),arr2.begin(),arr2.end());
+       return arr1;
+      
     }
 };
