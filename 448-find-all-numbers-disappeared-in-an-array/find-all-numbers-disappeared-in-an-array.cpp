@@ -4,8 +4,7 @@ public:
         vector<int>ans;
         for(int i=0;i<nums.size();i++){
             int index=abs(nums[i]);
-            nums[index-1]=-abs(nums[index-1]);
-
+            nums[index-1]=-(abs(nums[index-1]));
         }
         for(int i=0;i<nums.size();i++){
             if(nums[i]>0){
