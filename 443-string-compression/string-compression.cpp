@@ -2,24 +2,29 @@ class Solution {
 public:
     int compress(vector<char>& chars) {
         int n=chars.size();
-        int read=0;
-        int write=0;
-        while(read<n){
-          char ch=chars[read];
-          int count=0;
-          while(read<n && chars[read]==ch){
-            read++;
-            count++;
-          }
-          chars[write++]=ch;
-          if(count>1){
-            string freq= to_string(count);
-            for(char ch:freq){
-                chars[write++]=ch;
+        int index=0;
+        int i=0;
+        while(i<n){
+            int count=0;
+            char curr_char=chars[i];
+            //count find kar diya char ka
+            while(i<n && curr_char==chars[i]){
+                count++;
+                i++;
             }
-          }
+            chars[index]=curr_char;
+            index++;
+
+//for writing purpose if count>1
+           if(count>1){
+            string length=to_string(count);
+            for(char ch:length){
+                chars[index]=ch;
+                index++;
+            }
+           }
 
         }
-        return write;
+        return index;
     }
 };
