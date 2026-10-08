@@ -6,14 +6,13 @@ public:
         for(char ch:s){
             if(ch=='('){
                 count++;
-                if(count==1){
-                    continue;
+                if(count>1){
+                    ans += ch;
                 }
-                ans += ch;
             }else{
                 count--;
                 if(count>0){
-                ans += ch;
+                    ans += ch;
                 }
             }
         }
