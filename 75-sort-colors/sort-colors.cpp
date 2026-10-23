@@ -7,15 +7,15 @@ public:
         while(mid<=right){
             if(nums[mid]==0){
                 swap(nums[mid],nums[left]);
-                left++;
                 mid++;
+                left++;
             }else if(nums[mid]==1){
                 mid++;
-                
             }else{
                 swap(nums[mid],nums[right]);
                 right--;
             }
-        }        
+        }
+    
     }
 };
