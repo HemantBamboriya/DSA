@@ -6,25 +6,25 @@ public:
             freq[tasks[i]-'A']++;
         }
         priority_queue<int>pq;
-        for(int i=0;i<26;i++){
-            if(freq[i]>0){
-                pq.push(freq[i]);
-            }
+      for(int i=0;i<26;i++){
+        if(freq[i]>0){
+            pq.push(freq[i]);
         }
-        int timer=0;
-        while(!pq.empty()){
-          vector<int>temp;
-            for(int i=1;i<=n+1;i++){
-                if(!pq.empty()){
-                int eleFreq= pq.top();
+      }
+      int timer=0;
+      while(!pq.empty()){
+        vector<int>temp;
+        for(int i=1;i<=n+1;i++){
+            if(!pq.empty()){
+                int ele=pq.top();
                 pq.pop();
-                eleFreq--;
-                temp.push_back(eleFreq);
+                ele--;
+                temp.push_back(ele);
             }
         }
-        for(int f:temp){
-            if(f>0){
-                pq.push(f);
+        for(int num:temp){
+            if(num>0){
+                pq.push(num);
             }
         }
         if(pq.empty()){
@@ -32,7 +32,10 @@ public:
         }else{
             timer += n+1;
         }
-        }
-        return timer;
+
+
+      }
+return timer;
+        
     }
 };
