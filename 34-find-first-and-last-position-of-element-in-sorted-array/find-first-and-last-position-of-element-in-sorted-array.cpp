@@ -1,6 +1,5 @@
 class Solution {
 public:
-
 int lowerBound(vector<int>&nums,int target){
     int n=nums.size();
     int ans=n;
@@ -32,17 +31,17 @@ int upperBound(vector<int>&nums,int target){
         }
     }
     return ans;
-
 }
 
+
+
     vector<int> searchRange(vector<int>& nums, int target) {
-        int first=lowerBound(nums,target);
-        int last=upperBound(nums,target);
+        int first= lowerBound(nums,target);
+        int last= upperBound(nums,target);
+
         if(first==nums.size() || nums[first]!=target){
             return {-1,-1};
         }
         return {first,last-1};
-
-        
     }
 };
