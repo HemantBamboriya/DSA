@@ -8,16 +8,28 @@ int n;
     }
     
     void add(int num) {
-        nums.push_back(num);
-        n++;
+        if(num==0){
+            nums= {};
+            n=0;
+        }else{
+            if(nums.empty()){
+                nums.push_back(num);
+            }else{
+                nums.push_back(nums[n-1]*num);
+                
+            }
+            n++;
+        }
     }
     
     int getProduct(int k) {
-        int pro=1;
-        for(int i=n-k;i<n;i++){
-            pro *= nums[i];
-        }
-        return pro;
+       if(k>n){
+        return 0;
+       }else if(n==k){
+        return nums[n-1];
+       }
+        return nums[n-1]/nums[n-k-1];
+       
     }
 };
 
